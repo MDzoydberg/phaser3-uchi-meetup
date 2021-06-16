@@ -22,6 +22,7 @@ class MyScene extends Phaser.Scene {
       this.cat = this.matter.add.sprite(100, 550, 'cat').setScale(2);
       this.cat.name = 'cat'
     } else {
+      this.matter.pause();
       this.add.text(150, 200, 'GAME OVER', {fontSize: '300px'});
       this.add.image(900, 600, 'button')
         .setInteractive({ cursor: 'pointer' })
@@ -30,6 +31,7 @@ class MyScene extends Phaser.Scene {
     }
   }
   successGame() {
+    this.matter.pause();
     this.add.text(180, 200, 'WIN!!!!', {fontSize: '300px'});
     this.add.image(900, 600, 'button')
       .setInteractive({ cursor: 'pointer' })
@@ -102,29 +104,36 @@ class MyScene extends Phaser.Scene {
 
     this.matter.add.image(this.platform2.x + 50, this.platform2.y - 100, 'box').setBody('rectangle', {
       restitution: 0.5,
+      ignorePointer: true,
     }).name = 'box';
     this.matter.add.image(this.platform2.x + 50, this.platform2.y - 100, 'box').setBody('rectangle', {
       restitution: 0.5,
+      ignorePointer: true,
     }).name = 'box';
     this.matter.add.image(this.platform2.x, this.platform2.y - 200, 'box').setBody('rectangle', {
       restitution: 0.5,
+      ignorePointer: true,
     }).name = 'box';
     this.matter.add.image(this.platform2.x + 50, this.platform2.y - 300, 'box').setBody('rectangle', {
       restitution: 0.5,
+      ignorePointer: true,
     }).name = 'box';
     this.matter.add.image(this.platform2.x - 13, this.platform2.y - 400, 'box').setBody('rectangle', {
       restitution: 0.5,
+      ignorePointer: true,
     }).name = 'box';
 
-    this.matter.add.mouseSpring({});
+    this.matter.add.mouseSpring({
+      damping: 0.3,
+    });
 
 
-    const colliderH = this.matter.add.rectangle(1000, 1000, 4000, 100, {
+    const colliderH = this.matter.add.rectangle(1000, 1450, 4000, 900, {
       isSensor: true,
       isStatic: true
     });
     colliderH.name = 'bounds'
-    const colliderV = this.matter.add.rectangle(2000, 1000, 200, 2000, {
+    const colliderV = this.matter.add.rectangle(2500, 1000, 1200, 2000, {
       isSensor: true,
       isStatic: true
     });
