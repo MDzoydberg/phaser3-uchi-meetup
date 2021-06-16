@@ -1,0 +1,146 @@
+{
+  "textures": [
+    {
+      "image": "objectsTexture.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 482,
+        "h": 1979
+      },
+      "scale": 1,
+      "frames": [
+        {
+          "filename": "metal.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 480,
+            "h": 160
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 480,
+            "h": 160
+          },
+          "frame": {
+            "x": 1,
+            "y": 1,
+            "w": 480,
+            "h": 160
+          }
+        },
+        {
+          "filename": "wood.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 480,
+            "h": 160
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 480,
+            "h": 160
+          },
+          "frame": {
+            "x": 1,
+            "y": 163,
+            "w": 480,
+            "h": 160
+          }
+        },
+        {
+          "filename": "submarine.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 440,
+            "h": 424
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 440,
+            "h": 424
+          },
+          "frame": {
+            "x": 1,
+            "y": 325,
+            "w": 440,
+            "h": 424
+          }
+        },
+        {
+          "filename": "ball.png",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 400,
+            "h": 401
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 1,
+            "w": 400,
+            "h": 400
+          },
+          "frame": {
+            "x": 1,
+            "y": 751,
+            "w": 400,
+            "h": 400
+          }
+        },
+        {
+          "filename": "duck.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 356,
+            "h": 308
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 356,
+            "h": 308
+          },
+          "frame": {
+            "x": 1,
+            "y": 1153,
+            "w": 356,
+            "h": 308
+          }
+        },
+        {
+          "filename": "balloon.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 272,
+            "h": 515
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 272,
+            "h": 515
+          },
+          "frame": {
+            "x": 1,
+            "y": 1463,
+            "w": 272,
+            "h": 515
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "3.0",
+    "smartupdate": "$TexturePacker:SmartUpdate:80e3c8ec9f2427dca8736e8b1476614c:08e18ef585efaeab650b0588dac6120b:259b0d6ddfa96f56098233732a11b3a1$"
+  }
+}
