@@ -29,26 +29,32 @@ class MyScene extends Phaser.Scene {
       this.add.text(815, 585, 'RESTART', {fontSize: '40px'});
     }
   }
+  successGame() {
+    this.add.text(180, 200, 'WIN!!!!', {fontSize: '300px'});
+    this.add.image(900, 600, 'button')
+      .setInteractive({ cursor: 'pointer' })
+      .on('pointerdown', () => this.scene.restart());
+    this.add.text(815, 585, 'RESTART', {fontSize: '40px'});
+  }
 
   collisionHandler(bodyA, bodyB) {
-    let bodyAType;
-    let bodyBType;
+    const bodyAType = bodyA.gameObject ? bodyA.gameObject.name : bodyA.name;
+    const bodyBType = bodyB.gameObject ? bodyB.gameObject.name : bodyB.name;;
 
-    if (bodyA.gameObject && bodyA.gameObject.name) {
-      bodyAType = bodyA.gameObject.name;
-    } else {
-      bodyAType = bodyA.name;
-    }
-    if (bodyB.gameObject && bodyB.gameObject.name) {
-      bodyBType = bodyB.gameObject.name;
-    } else {
-      bodyBType = bodyB.name;
-    }
-    console.log(bodyBType, bodyAType);
     if (!bodyAType || !bodyBType) return;
     const bodyTypes = [bodyAType, bodyBType];
 
     if (bodyTypes.includes('cat') && bodyTypes.includes('bounds')) this.catFail();
+
+    if (bodyBType === 'box' && bodyTypes.includes('bounds')) {
+      bodyB.gameObject.destroy()
+      this.boxCount--;
+    }
+    if (bodyAType === 'box' && bodyTypes.includes('bounds')) {
+      bodyA.gameObject.destroy()
+      this.boxCount--;
+    }
+    if (this.boxCount === 0) this.successGame();
   }
 
   preload() {
@@ -64,6 +70,7 @@ class MyScene extends Phaser.Scene {
   create() {
     this.hearts = [];
     this.heartsCount = 0;
+    this.boxCount = 5;
 
     // interface
     this.add.image(400, 300, 'bg');
@@ -80,9 +87,11 @@ class MyScene extends Phaser.Scene {
 
     this.matter.world.setBounds(0, 0, 1920, 1080, 2000, true, false, true, false);
 
-    this.cat = this.matter.add.sprite(100, 550, 'cat').setScale(2);
+    this.cat = this.matter.add.sprite(100, 550, 'cat')
+      .setScale(2)
+      .setBounce(2);
     this.cat.name = 'cat'
-    this.cat.setFrictionAir(0.01);
+    this.cat.setFrictionAir(0.02);
 
     this.platform = this.matter.add.image(-150, 750, 'rainbow').setStatic(true);
 
